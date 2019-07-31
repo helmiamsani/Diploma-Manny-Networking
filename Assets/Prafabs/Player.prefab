@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4121925911990844016}
   - component: {fileID: 5487120505604173811}
   - component: {fileID: 3638124354855147231}
+  - component: {fileID: 7745384798379566872}
   - component: {fileID: 6615610985993389422}
   - component: {fileID: 7591380596578202801}
   m_Layer: 0
@@ -220,6 +221,18 @@ MonoBehaviour:
   movementSpeed: 10
   rotationSpeed: 10
   jumpHeight: 2
+--- !u!114 &7745384798379566872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121925911990844019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18be10dd2f647b4cbd0b623632823a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6615610985993389422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c02329ca36255341b066e9eea008a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpRate: 15
+  positionThreshold: 0.5
+  rotationThreshold: 5
 --- !u!1 &4121925912466210456
 GameObject:
   m_ObjectHideFlags: 0

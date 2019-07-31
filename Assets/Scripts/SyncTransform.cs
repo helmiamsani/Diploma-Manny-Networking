@@ -29,12 +29,6 @@ public class SyncTransform : NetworkBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void LerpPosition()
     {
         // If the current instance is not the local player
