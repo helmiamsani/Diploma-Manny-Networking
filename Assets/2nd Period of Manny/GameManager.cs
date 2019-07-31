@@ -21,7 +21,10 @@ public class GameManager : MonoBehaviour
 
     public void Load(string path)
     {
-        
+        var seriaizer = new XmlSerializer(typeof(GameData));
+        var stream = new FileStream(path, FileMode.Open);
+        data = seriaizer.Deserialize(stream) as GameData;
+        Debug.Log("Successfully Loaded from " + path);
     }
 
     public void Save(string path)
@@ -48,6 +51,13 @@ public class GameManager : MonoBehaviour
                 "Word"
             };
             Save(Application.dataPath + "/" + fileName);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Load(Application.dataPath + "/" + fileName);
+            player = FindObjectOfType<PlayerScript>().transform;
+            player.position = data.position;
+            player.rotation = data.rotation;
         }
     }
 }
