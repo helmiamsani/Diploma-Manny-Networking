@@ -15,6 +15,26 @@ public class PlayerScript : NetworkBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+
+        // Get Audio Listener from Camera
+        AudioListener audioListener = GetComponentInChildren<AudioListener>();
+        // Get Camera
+        Camera camera = GetComponentInChildren<Camera>();
+
+        // If the current instance is the local player
+        if (isLocalPlayer)
+        {
+            // Enable everything
+            camera.enabled = true;
+            audioListener.enabled = true;
+        }
+        else
+        {
+            // Disable everything
+            camera.enabled = false;
+            audioListener.enabled = false;
+        }
+
     }
 
     // Update is called once per frame
