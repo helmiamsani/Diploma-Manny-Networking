@@ -59,10 +59,12 @@ public class PlayerScript : NetworkBehaviour
                 position += -transform.forward * movementSpeed * Time.deltaTime;
                 break;
             case KeyCode.A:
-                rotation *= Quaternion.AngleAxis(-rotationSpeed, Vector3.up);
+                //rotation *= Quaternion.AngleAxis(-rotationSpeed, Vector3.up);
+                position += -transform.right * movementSpeed * Time.deltaTime;
                 break;
             case KeyCode.D:
-                rotation *= Quaternion.AngleAxis(rotationSpeed, Vector3.up);
+                //rotation *= Quaternion.AngleAxis(rotationSpeed, Vector3.up);
+                position += transform.right * movementSpeed * Time.deltaTime;
                 break;
             case KeyCode.Space:
                 if (isGrounded)

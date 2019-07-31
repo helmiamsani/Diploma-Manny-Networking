@@ -14,9 +14,9 @@ public class LookScript : NetworkBehaviour
 
     // Private:
     // Yaw of the camera (Rotation on Y)
-    private float rotationY = 0f;
+    private float yaw = 0f;
     // Pitch of the camera (Rotation on X)
-    private float rotationX = 0f;
+    private float pitch = 0f;
     // Main camera reference
     private GameObject mainCamera;
 
@@ -45,6 +45,17 @@ public class LookScript : NetworkBehaviour
         }
     }
 
+    void LateUpdate()
+    {
+        if (isLocalPlayer)
+        {
+            // Rotate the camera up or down using pitch
+            mainCamera.transform.localEulerAngles = new Vector3(-pitch, 0, 0);
+        }   
+    }
+
+
+
     private void OnDestroy()
     {
         // Release the cursor
@@ -55,9 +66,10 @@ public class LookScript : NetworkBehaviour
 
     void HandleInput()
     {
-        rotationY += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        rotationX += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime; ;
+        yaw = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        pitch += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        rotationX = Mathf.Clamp(rotationX, minimumY, maximumY);
+        pitch = Mathf.Clamp(pitch, minimumY, maximumY);
+        transform.Rotate(0, yaw, 0);
     }
 }
