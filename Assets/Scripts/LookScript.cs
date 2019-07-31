@@ -14,9 +14,9 @@ public class LookScript : NetworkBehaviour
 
     // Private:
     // Yaw of the camera (Rotation on Y)
-    private float yaw = 0f;
+    private float rotationY = 0f;
     // Pitch of the camera (Rotation on X)
-    private float pitch = 0f;
+    private float rotationX = 0f;
     // Main camera reference
     private GameObject mainCamera;
 
@@ -55,6 +55,9 @@ public class LookScript : NetworkBehaviour
 
     void HandleInput()
     {
-        
+        rotationY += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        rotationX += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime; ;
+
+        rotationX = Mathf.Clamp(rotationX, minimumY, maximumY);
     }
 }
