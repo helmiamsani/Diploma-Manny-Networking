@@ -47,7 +47,7 @@ public class SyncTransform : NetworkBehaviour
         }
     }
 
-    [Command] 
+    [Command]
     void CmdSendPositionToServer(Vector3 _position)
     {
         syncPosition = _position;
